@@ -5,14 +5,25 @@
 .landing .intro {
     display: flex;
     align-items: center;
-    gap: 12px
+    gap: 12px;
+    height: 90vh;
+    margin-bottom: 18px;
 }
 
-.landing .intro h1 {
+.landing .intro .heading {
+    animation: fadeIn 2s ease-in;
+}
+
+.landing h1 {
     font-size: 56px;
 }
 
-.landing .intro .heading p {
+.landing h2 {
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.landing p {
     font-size: 24px;
 }
 
@@ -52,7 +63,8 @@
 .testimonials p:nth-child(4) {
     font-style: italic;
     text-align: left;
-    animation: none; 
+    opacity: 1;
+    animation-delay: 3s;
 }
 
 .mission {
@@ -84,6 +96,7 @@
 
 .services .service {
     animation: fadeInUp 3s ease-in-out;
+    padding: 12px;
 }
 
 @media (max-width: 1200px) {
@@ -104,12 +117,12 @@
     }
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
     from {
-        transform: translateY(20px);
+        opacity: 0;
     }
     to {
-        transform: translateY(0);
+        opacity: 1;
     }
 }
 
