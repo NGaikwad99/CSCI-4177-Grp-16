@@ -1,16 +1,14 @@
-import './footer.css'
-import { Link } from 'react-router-dom';
+import './footer.css';
+import { NavLink } from 'react-router-dom';
 
-import ContactUs from './ContactUs';
-import FAQ from './FAQ';
 function Footer() {
     return (
         <footer className="footer">
-            <Link to="/ContactUs" >Contact us</Link>
-            <Link to="/FAQ">FAQ</Link>
+            <NavLink to="/ContactUs" activeClassName="active-link">Contact us</NavLink>
+            <NavLink to="/FAQ" activeClassName="active-link">FAQ</NavLink>
             <p>© 2024 Group 16</p>
         </footer>
-    )
+    );
 }
 
 export default Footer;

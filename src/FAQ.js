@@ -3,9 +3,10 @@ import "./faq.css";
 function FAQ() {
     
     return (
-    <div className="faqPg">
-         <h2>Frequently Asked Questions (FAQ)</h2>
+    <main className="faqPg">
+         <h1>Frequently Asked Questions (FAQ)</h1>
           <p>In case this page cannot answer your questions, feel free to contact us!</p>
+          <div className="questions">
           <div className = "question">
               <p><strong>What is Safe Space?</strong></p>
               <div className = "answer">
@@ -38,8 +39,9 @@ function FAQ() {
                 </p>
               </div>
           </div>
+          </div>
           
-    </div>
+    </main>
     );
 }
 
