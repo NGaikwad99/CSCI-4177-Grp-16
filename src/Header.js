@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="header">
             <div className="logo-div">
-                <img src={logo}></img>
+                <img src={logo} alt='logo of the app'></img>
                 
                 <Link to="/"><h1>SafeSpace</h1></Link>
             </div>
