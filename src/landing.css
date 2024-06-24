@@ -1,0 +1,62 @@
+.landing {
+    
+}
+
+.mission {
+    background-color: #D2F1FB;
+    overflow: auto;
+    border: 1px solid black;
+    padding: 20px
+}
+
+.mission-image {
+    float: right;
+    width: 20%;
+}
+
+.mission .content {
+    float: left;
+    text-align: left;
+    width: 70%;
+    line-height: 24px;
+    animation: slideInLeft 10s ease-in-out;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.services .service {
+    animation: fadeInUp 3s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+    .services {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
