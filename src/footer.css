@@ -8,11 +8,17 @@
     bottom: 0px;
     box-sizing: border-box;
     width: 100%;
-    position: relative;
-    bottom: 0px;
     font-size: 20px;
 }
 
 .footer p {
     margin: 0px;
+    
 }
+
+.active-link {
+    color: #007BFF; /* Active link color */
+    border-bottom: 2px solid #007BFF; /* Underline active link */
+  }
+
+  

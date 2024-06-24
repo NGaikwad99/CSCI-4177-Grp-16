@@ -1,14 +1,24 @@
 .faqPg {
   display: block;
-    justify-content: center;
-    font-family: Arial, sans-serif;
+  text-align: left;
     padding: 20px 50px;
     margin: auto;
-    width: 70%;
   }
+  
   
  .question {
   background-color: #9BDCF1;
+ }
+
+ .questions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+ }
+
+ .question p {
+  padding: 16px;
+  margin: 0px;
  }
  .answer {
   background-color: #D3F2FC;

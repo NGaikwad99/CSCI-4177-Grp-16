@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    min-height: 90vh;
+    min-height: 85vh;
     margin-bottom: 18px;
 }
 
@@ -129,8 +129,6 @@
     .services {
         grid-template-columns: 1fr;
     }
-
-    
 }
 
 @keyframes fadeIn {
