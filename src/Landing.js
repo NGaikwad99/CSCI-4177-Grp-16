@@ -7,7 +7,7 @@ function Landing() {
         <main className="landing">
             <section className='intro'>
                 <div className='heading'>
-                    <img src={introImg}/>
+                    <img src={introImg} alt='brain wearing headphones'/>
                     <h1>Speak your heart out in a SafeSpace!</h1>
                     <p>Meet with a therapist, start your journal, have a chat with your computer buddy Zen or take advantage of our wide-range of resources! We got you covered!</p>
                 </div>
@@ -39,7 +39,7 @@ function Landing() {
                         Schedule a regular meeting session, join an impromptu meeting, make friends and join online discussions, all while being provided with an abundance of resources and tools to help you along your journey.
                     </p>
                 </div>
-                <img className='mission-image' src={mission}></img>
+                <img className='mission-image' src={mission} alt='vector showing mission'></img>
             </section>
 
             <section className="services">
