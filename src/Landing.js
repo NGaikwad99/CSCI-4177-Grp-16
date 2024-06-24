@@ -1,9 +1,34 @@
 import './landing.css'
 import mission from './assets/img/mission.png'
+import introImg from './assets/img/img-intro2.png'
 
 function Landing() {
     return (
         <main className="landing">
+            <section className='intro'>
+                <div className='heading'>
+                    <img src={introImg}/>
+                    <h1>Speak your heart out in a SafeSpace!</h1>
+                    <p>Meet with a therapist, start your journal, have a chat with your computer buddy Zen or take advantage of our wide-range of resources! We got you covered!</p>
+                </div>
+                
+                <div className='testimonials'>
+                    <p>
+                        "Safe Space has been a lifeline for me during some of my darkest days. The support and resources available are unparalleled."
+                        <span className='author'>— Jessica S.</span>
+                    </p>
+                    <p>
+                        "I love the flexibility and anonymity Safe Space provides. It makes it so much easier to reach out for help."
+                        <span className='author'>— Mark T.</span>
+                    </p>
+                    <p>
+                        "The self-care tools have been incredibly helpful in managing my daily stress. I highly recommend Safe Space to anyone."
+                        <span className='author'>— Emily R.</span>
+                    </p>
+                    <p>** placeholder text since user studies haven't been conducted</p>
+                </div>
+            </section>
+
             <section className="mission">
                 <div className='content'>
                     <h1>Our Mission</h1>
