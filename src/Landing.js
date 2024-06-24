@@ -4,6 +4,29 @@ import mission from './assets/img/mission.png'
 function Landing() {
     return (
         <main className="landing">
+            <section className='intro'>
+                <div className='heading'>
+                    <h1>Speak your heart out in a SafeSpace!</h1>
+                    <p>Meet with a therapist, start your journal, have a chat with your computer buddy Zen or take advantage of our wide-range of resources! We got you covered!</p>
+                </div>
+                
+                {/* <p>
+                "Safe Space has been a lifeline for me during some of my darkest days. The support and resources available are unparalleled."
+                — Jessica S.
+                </p>
+                <p>
+                "I love the flexibility and anonymity Safe Space provides. It makes it so much easier to reach out for help."
+                — Mark T.
+                </p>
+                <p>
+                "The self-care tools have been incredibly helpful in managing my daily stress. I highly recommend Safe Space to anyone."
+                — Emily R.
+                </p> */}
+
+                
+            </section>
+            
+
             <section className="mission">
                 <div className='content'>
                     <h1>Our Mission</h1>

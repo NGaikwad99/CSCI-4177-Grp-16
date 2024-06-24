@@ -2,6 +2,10 @@
     
 }
 
+.landing .intro {
+    height: 100vh;
+}
+
 .mission {
     background-color: #D2F1FB;
     overflow: auto;
