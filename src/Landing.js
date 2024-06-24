@@ -1,11 +1,13 @@
 import './landing.css'
 import mission from './assets/img/mission.png'
+import introImg from './assets/img/img-intro2.png'
 
 function Landing() {
     return (
         <main className="landing">
             <section className='intro'>
                 <div className='heading'>
+                    <img src={introImg}/>
                     <h1>Speak your heart out in a SafeSpace!</h1>
                     <p>Meet with a therapist, start your journal, have a chat with your computer buddy Zen or take advantage of our wide-range of resources! We got you covered!</p>
                 </div>
