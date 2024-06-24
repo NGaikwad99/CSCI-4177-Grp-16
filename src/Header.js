@@ -7,7 +7,8 @@ function Header() {
         <header className="header">
             <div className="logo-div">
                 <img src={logo}></img>
-                <h1>SafeSpace</h1>
+                
+                <Link to="/"><h1>SafeSpace</h1></Link>
             </div>
             <div class="nav-auth">
                 <nav className="nav">
