@@ -1,6 +1,6 @@
 import './landing.css'
-import mission from './assets/img/mission.png'
-import introImg from './assets/img/img-intro.png'
+import mission from '../assets/img/mission.png'
+import introImg from '../assets/img/img-intro.png'
 
 function Landing() {
     return (

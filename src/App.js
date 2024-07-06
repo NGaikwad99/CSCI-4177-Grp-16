@@ -2,11 +2,11 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './Landing';
-import Header from './Header';
-import Footer from './Footer';
-import ContactUs from './ContactUs';
-import FAQ from './FAQ';
+import LandingPage from './pages/Landing';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ContactUs from './pages/ContactUs';
+import FAQ from './pages/FAQ';
 
 function App() {
 
