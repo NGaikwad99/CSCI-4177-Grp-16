@@ -12,8 +12,8 @@ function Header() {
             </div>
             <div class="nav-auth">
                 <nav className="nav">
-                    <Link to="/">Resources</Link>
-                    <Link to="/">About us</Link>
+                    <Link to="/">Online Resources</Link>
+                    <Link to="/">Local Resources</Link>
                 </nav>
 
                 <div className="auth">
