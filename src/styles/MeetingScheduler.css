@@ -51,13 +51,13 @@
     background-color: #FFB8B2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-    margin-bottom: 5px; /* Reduced margin */
-    padding: 15px; /* Increased padding */
+    margin-bottom: 5px; 
+    padding: 15px; 
     font-family: inherit;
-    font-size: 1.2rem; /* Increased font size */
+    font-size: 1.2rem; 
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    position: relative; /* For the dot */
+    position: relative; 
 }
 
 .custom-calendar-main .react-calendar__tile:hover {
@@ -86,7 +86,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: inherit;
-    font-size: 1.4rem; /* Increased font size */
+    font-size: 1.4rem; 
     margin-bottom: 10px;
 }
 
@@ -97,11 +97,11 @@
     color: black;
     font-family: inherit;
     padding: 5px;
-    width: 40px; /* Increased width */
+    width: 40px; 
     margin-left: 8px;
     margin-right: 8px;
-    height: 40px; /* Increased height */
-    font-size: 1.4rem; /* Increased font size */
+    height: 40px;
+    font-size: 1.4rem; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,7 +118,7 @@
 .custom-calendar-main .react-calendar__navigation__label {
     font-family: inherit;
     background-color: #FFB8B2;
-    font-size: 1.4rem; /* Increased font size */
+    font-size: 1.4rem; 
     border: none;
 }
 
@@ -180,27 +180,27 @@
 }
 
 .reschedule-btn {
-    background-color: #FFA500; /* Orange color */
+    background-color: #FFA500; 
 }
 
 .reschedule-btn:hover {
-    background-color: #FF8C00; /* Darker orange */
+    background-color: #FF8C00; 
 }
 
 .cancel-btn {
-    background-color: #FF5733; /* Red color */
+    background-color: #FF5733;
 }
 
 .cancel-btn:hover {
-    background-color: #e14d2a; /* Darker red */
+    background-color: #e14d2a; 
 }
 
 .load-more-btn {
-    background-color: #6c757d; /* Gray color */
+    background-color: #6c757d; 
 }
 
 .load-more-btn:hover {
-    background-color: #5a6268; /* Darker gray */
+    background-color: #5a6268; 
 }
 
 .prompt {
@@ -213,7 +213,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    max-height: 70%; /* Adjusted height */
+    max-height: 70%; 
     overflow-y: auto;
 }
 
@@ -239,20 +239,20 @@
 .custom-calendar-prompt {
     width: 100%;
     background-color: #FFB8B2;
-    height: 300px; /* Adjusted height */
+    height: 300px;
 }
 
 .custom-calendar-prompt .react-calendar__tile {
     background-color: #FFB8B2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-    margin-bottom: 5px; /* Adjusted margin */
-    padding: 10px; /* Same padding as main calendar */
+    margin-bottom: 5px; 
+    padding: 10px; 
     font-family: inherit;
-    font-size: 1rem; /* Default font size */
+    font-size: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    position: relative; /* For the dot */
+    position: relative; 
 }
 
 .custom-calendar-prompt .react-calendar__tile:hover {
@@ -281,7 +281,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: inherit;
-    font-size: 1.2rem; /* Default font size */
+    font-size: 1.2rem; 
     margin-bottom: 10px;
 }
 
@@ -292,11 +292,11 @@
     color: black;
     font-family: inherit;
     padding: 5px;
-    width: 30px; /* Default width */
+    width: 30px; 
     margin-left: 8px;
     margin-right: 8px;
-    height: 30px; /* Default height */
-    font-size: 1.2rem; /* Default font size */
+    height: 30px; 
+    font-size: 1.2rem; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,7 +313,7 @@
 .custom-calendar-prompt .react-calendar__navigation__label {
     font-family: inherit;
     background-color: #FFB8B2;
-    font-size: 1.2rem; /* Default font size */
+    font-size: 1.2rem; 
     border: none;
 }
 
@@ -369,7 +369,7 @@
 
 .dot {
     position: absolute;
-    bottom: 5px; /* Adjust as needed */
+    bottom: 5px; 
     left: 50%;
     transform: translateX(-50%);
     width: 10px;
