@@ -1,7 +1,7 @@
-// Chatbot.js
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
+import './chatbot.css'; // Import the CSS file
 
 const theme = {
   background: '#f5f8fb',
@@ -36,7 +36,9 @@ const steps = [
 const Chatbot = () => {
   return (
     <ThemeProvider theme={theme}>
-      <ChatBot steps={steps} />
+      <div className="chatbot-container">
+        <ChatBot steps={steps} />
+      </div>
     </ThemeProvider>
   );
 };

@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactUs from './pages/ContactUs';
 import FAQ from './pages/FAQ';
+import Chatbot from './components/Chatbot';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         
         <Footer />
       </Router>
+      <Chatbot />
     </div>
   );
 }
