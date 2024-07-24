@@ -21,7 +21,7 @@ function MeetingScheduler() {
 
     const handleScheduleMeeting = () => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Reset time to start of day
+        today.setHours(0, 0, 0, 0);
 
         if (!meetingType) {
             setAlertMessage('Please select a meeting type.');
