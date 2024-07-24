@@ -1,13 +1,11 @@
-
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './Landing';
-import Header from './Header';
-import Footer from './Footer';
-import ContactUs from './ContactUs';
-import FAQ from './FAQ';
-import MeetingScheduler from './components/MeetingScheduler';
+import LandingPage from './pages/Landing';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ContactUs from './pages/ContactUs';
+import FAQ from './pages/FAQ';
 
 function App() {
 
@@ -20,7 +18,6 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route path ="ContactUs" element={<ContactUs />} />
           <Route path = "FAQ" element={<FAQ />} />
-          <Route path = "MeetingScheduler" element={<MeetingScheduler />} />
         </Routes>
         
         <Footer />

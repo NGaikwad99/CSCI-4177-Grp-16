@@ -1,16 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.css'
 import logo from './assets/img/logo.png';
 
 function Header() {
-    const navigate = useNavigate();
-
-    const handleLogIn = () => {
-        navigate("/MeetingScheduler", {state: {userType: "Therapist"}});
-    }
-    const handleSignUp = () => {
-        navigate("/MeetingScheduler", {state: {userType: "Patient"}});
-    }
     return (
         <header className="header">
             <div className="logo-div">
@@ -20,13 +12,13 @@ function Header() {
             </div>
             <div class="nav-auth">
                 <nav className="nav">
-                    <Link to="/">Resources</Link>
-                    <Link to="/">About us</Link>
+                    <Link to="/">Online Resources</Link>
+                    <Link to="/">Local Resources</Link>
                 </nav>
 
                 <div className="auth">
-                    <button className="signup" onClick={handleSignUp}>Sign up</button>
-                    <button className="login" onClick={handleLogIn}>Log in</button>
+                    <button className="signup">Sign up</button>
+                    <button className="login">Log in</button>
                 </div>
             </div>
         </header>
