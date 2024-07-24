@@ -40,12 +40,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .login {
     background-color: transparent;
     border: none;
     padding-right: 0px;
+    cursor: pointer;
 }
 
 a {

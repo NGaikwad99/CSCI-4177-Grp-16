@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import ContactUs from './ContactUs';
 import FAQ from './FAQ';
+import MeetingScheduler from './components/MeetingScheduler';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route path ="ContactUs" element={<ContactUs />} />
           <Route path = "FAQ" element={<FAQ />} />
+          <Route path = "MeetingScheduler" element={<MeetingScheduler />} />
         </Routes>
         
         <Footer />
