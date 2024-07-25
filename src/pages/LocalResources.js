@@ -55,7 +55,7 @@ function LocalResources() {
 
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyCxpNpc1eJJs8pqGC43iNzjXFsktN1zAuM"
+      googleMapsApiKey="AIzaSyDCwpVs2NUwsdFDoYlM0WEhDr83tV0-0iU"
       libraries={['places']}
     >
       <GoogleMap
