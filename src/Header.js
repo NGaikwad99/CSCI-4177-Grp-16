@@ -8,9 +8,9 @@ function Header() {
             <div className="logo-div">
                 <img src={logo} alt='logo of the app'></img>
                 
-                <Link to="/"><h1>SafeSpace</h1></Link>
+                <Link to="/"><h1>SafeS</h1></Link>
             </div>
-            <div class="nav-auth">
+            <div class="nav-auth">  
                 <nav className="nav">
                     <Link to="/">Online Resources</Link>
                     <Link to="/">Local Resources</Link>

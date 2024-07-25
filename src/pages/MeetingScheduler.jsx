@@ -9,6 +9,8 @@ const therapists = ['Dr. House', 'Dr. Watson', 'Dr. Strange'];
 function MeetingScheduler() {
     const location = useLocation();
     const userType = location.state?.userType || "Therapist";
+    console.log('Location state:', location.state); // Log the state to ensure it is being passed
+    console.log('User Type:', userType); // Log the userType to ensure it is correct
     const [meetingType, setMeetingType] = useState('');
     const [selectedPerson, setSelectedPerson] = useState('');
     const [selectedDate, setSelectedDate] = useState(new Date());
