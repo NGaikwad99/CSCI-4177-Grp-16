@@ -1,10 +1,22 @@
 const http = require('http');
-const app = require('./app');
+const { startServer } = require('./app');
+const { databaseConnection } = require('./db');
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-const server = http.createServer(app);
+//Create HTTP server
+const server = http.createServer();
 
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+//connect to the database
+
+databaseConnection()
+    .then(db => {
+        startServer(server, db);
+        server.listen(PORT, () => {
+            console.log("Server is running");
+        });
+    })
+    .catch(err => {
+        console.error('Error starting server: ', err);
+        process.exit(1);
+    });
