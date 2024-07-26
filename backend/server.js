@@ -1,42 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const { getArticles, getVideos } = require('./OnlineResources');
-const { databaseConnection} = require('./db');
+const http = require('http');
+const app = require('./app');
 
-const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000;
 
-app.use(cors());
+const server = http.createServer(app);
 
-app.get('/articles', async (req, res) => {
-    try {
-        const articles = await getArticles();
-        res.status(200).json(articles);
-    } catch (err) {
-        res.status(500).send('Error retrieving articles');
-    }
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
-
-app.get('/videos', async (req, res) => {
-    try {
-        const videos = await getVideos();
-        res.status(200).json(videos);
-    } catch (err) {
-        res.status(500).send('Error retrieving videos');
-    }
-});
-
-databaseConnection()
-    .then(() => {
-        app.listen(port, () => {
-            console.log(`Server is running on port ${port}`);
-        });
-    })
-    .catch(err => {
-        console.error('Error starting server: ', err);
-        process.exit(1);
-    });
-
-
-
-    
