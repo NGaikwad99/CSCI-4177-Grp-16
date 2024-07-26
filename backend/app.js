@@ -16,7 +16,7 @@ function startServer(server, db){
         }
     });
 
-    //GET API to fetch all users
+    //GET API to fetch one user based on id
     app.get('/users/:id', async(req, res) =>{
         try{
             const users = await db.collection(collectionName).findOne({_id: new ObjectId(req.params.id)});
@@ -46,6 +46,7 @@ function startServer(server, db){
         }
     });
 
+    //DELETE API to delete a user based on id
     app.delete('/delete/:id', async(req, res) => {
         try{
             await db.collection(collectionName).deleteOne({_id: new ObjectId(req.params.id)});
