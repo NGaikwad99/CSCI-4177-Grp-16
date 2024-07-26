@@ -16,6 +16,16 @@ function startServer(server, db){
         }
     });
 
+    //GET API to fetch all users
+    app.get('/users/:id', async(req, res) =>{
+        try{
+            const users = await db.collection(collectionName).findOne({_id: new ObjectId(req.params.id)});
+            res.status(201).json(users);
+        } catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
+    });
+
     //POST API to add users
     app.post('/add', async(req, res) => {
         try{
@@ -31,6 +41,15 @@ function startServer(server, db){
         try{
             await db.collection(collectionName).updateOne({_id: new ObjectId(req.params.id)}, { $set: req.body });
             res.status(200).json({success: true, message: 'User is updated'});
+        }catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
+    });
+
+    app.delete('/delete/:id', async(req, res) => {
+        try{
+            await db.collection(collectionName).deleteOne({_id: new ObjectId(req.params.id)});
+            res.status(200).json({success: true, message: 'User is deleted'});
         }catch(err){
             res.status(500).json({success: false, message: err.message});
         }
