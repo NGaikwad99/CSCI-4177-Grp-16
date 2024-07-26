@@ -1,5 +1,5 @@
 const {MongoClient} = require('mongodb');
-const atlas_connection_string = 'mongodb+srv://admin:3L4OyLisL3GCBY6y@ssdata.tcuzl0t.mongodb.net/?retryWrites=true&w=majority&appName=ssdata';
+const atlas_connection_string = 'mongodb+srv://admin2:6rORMnrxCGNqD4uT@ssdata.tcuzl0t.mongodb.net/?retryWrites=true&w=majority&appName=ssdata';
 
 let mongoClient;
 

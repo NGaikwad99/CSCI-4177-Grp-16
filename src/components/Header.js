@@ -12,12 +12,8 @@ function Header() {
             </div>
             <div class="nav-auth">
                 <nav className="nav">
-<<<<<<< HEAD
                     <Link to="/LocalResources">Local Resources</Link>
                     <Link to="/OnlineResources">Online Resources</Link>
-=======
-                    <Link to="/">Resources</Link>
->>>>>>> main
                     <Link to="/">About us</Link>
                 </nav>
 
