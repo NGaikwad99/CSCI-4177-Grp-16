@@ -1,10 +1,19 @@
-const http = require('http');
-const app = require('./app');
+const express = require('express');
+const cors = require('cors');
+const { databaseConnection } = require('./db');
+const app = require('./app'); 
 
-const port = process.env.PORT || 3000;
+const port = 3001;
 
-const server = http.createServer(app);
+app.use(cors()); 
 
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+databaseConnection()
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Server is running on port ${port}`);
+        });
+    })
+    .catch(err => {
+        console.error('Error starting server: ', err);
+        process.exit(1);
+    });

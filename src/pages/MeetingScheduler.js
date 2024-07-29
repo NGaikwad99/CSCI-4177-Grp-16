@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { Calendar } from 'react-calendar';
 import "../styles/MeetingScheduler.css";
 
-const patients = ['Jon Snow', 'Jessica Lannister'];
-const therapists = ['Dr. House', 'Dr. Watson', 'Dr. Strange'];
-
 function MeetingScheduler() {
     const location = useLocation();
     const userType = location.state?.userType || "Therapist";
-    console.log('Location state:', location.state); // Log the state to ensure it is being passed
-    console.log('User Type:', userType); // Log the userType to ensure it is correct
+    console.log('Location state:', location.state); 
+    console.log('User Type:', userType); 
+
     const [meetingType, setMeetingType] = useState('');
     const [selectedPerson, setSelectedPerson] = useState('');
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -21,7 +20,41 @@ function MeetingScheduler() {
     const [rescheduleIndex, setRescheduleIndex] = useState(null);
     const [showMore, setShowMore] = useState(false);
 
-    const handleScheduleMeeting = () => {
+    const [patients, setPatients] = useState([]);
+    const [therapists, setTherapists] = useState([]);
+
+    const fetchUsers = useCallback(async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/users');
+            const users = response.data.users;
+
+            const filteredUsers = users.filter(user => user.role);
+
+            if (userType === 'Therapist') {
+                setPatients(filteredUsers.filter(user => user.role === 'patient'));
+            } else {
+                setTherapists(filteredUsers.filter(user => user.role === 'therapist'));
+            }
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    }, [userType]);
+
+    const fetchUpcomingMeetings = useCallback(async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/meetings/user/${userType.toLowerCase()}`);
+            setUpcomingMeetings(response.data);
+        } catch (error) {
+            console.error('Error fetching upcoming meetings:', error);
+        }
+    }, [userType]);
+
+    useEffect(() => {
+        fetchUsers();
+        fetchUpcomingMeetings();
+    }, [fetchUsers, fetchUpcomingMeetings]);
+
+    const handleScheduleMeeting = async () => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
@@ -55,20 +88,27 @@ function MeetingScheduler() {
             date: newMeetingDate,
             person: selectedPerson,
             type: meetingType,
+            userType
         };
 
-        if (isRescheduling) {
-            const updatedMeetings = [...upcomingMeetings];
-            updatedMeetings[rescheduleIndex] = newMeeting;
-            setUpcomingMeetings(updatedMeetings);
-            setIsRescheduling(false);
-            setRescheduleIndex(null);
-        } else {
-            setUpcomingMeetings([...upcomingMeetings, newMeeting]);
+        try {
+            if (isRescheduling) {
+                const response = await axios.put(`http://localhost:3001/meetings/reschedule/${upcomingMeetings[rescheduleIndex]._id}`, newMeeting);
+                const updatedMeetings = [...upcomingMeetings];
+                updatedMeetings[rescheduleIndex] = response.data;
+                setUpcomingMeetings(updatedMeetings);
+                setIsRescheduling(false);
+                setRescheduleIndex(null);
+            } else {
+                const response = await axios.post('http://localhost:3001/meetings/schedule', newMeeting);
+                setUpcomingMeetings([...upcomingMeetings, response.data]);
+            }
+            setShowPrompt(false);
+            setAlertMessage('Meeting successfully booked.');
+        } catch (error) {
+            console.error('Error scheduling meeting:', error);
+            setAlertMessage('Error scheduling meeting.');
         }
-
-        setShowPrompt(false);
-        setAlertMessage('MEETING SUCCESSFULLY BOOKED');
     };
 
     const handleReschedule = (index) => {
@@ -81,9 +121,15 @@ function MeetingScheduler() {
         setShowPrompt(true);
     };
 
-    const handleCancel = (index) => {
-        const updatedMeetings = upcomingMeetings.filter((_, i) => i !== index);
-        setUpcomingMeetings(updatedMeetings);
+    const handleCancel = async (index) => {
+        try {
+            await axios.delete(`http://localhost:3001/meetings/cancel/${upcomingMeetings[index]._id}`);
+            const updatedMeetings = upcomingMeetings.filter((_, i) => i !== index);
+            setUpcomingMeetings(updatedMeetings);
+        } catch (error) {
+            console.error('Error canceling meeting:', error);
+            setAlertMessage('Error canceling meeting.');
+        }
     };
 
     const visibleMeetings = showMore ? upcomingMeetings : upcomingMeetings.slice(0, 2);
@@ -162,7 +208,7 @@ function MeetingScheduler() {
                         <select onChange={(e) => setSelectedPerson(e.target.value)} value={selectedPerson}>
                             <option value="">Select</option>
                             {(userType === 'Therapist' ? patients : therapists).map((person, index) => (
-                                <option key={index} value={person}>{person}</option>
+                                <option key={index} value={person.name}>{person.name}</option>
                             ))}
                         </select>
                         <div className="calendar-prompt">
