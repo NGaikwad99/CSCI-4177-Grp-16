@@ -1,39 +1,62 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
+const express = require('express'); //instance of an express application is created
+const { ObjectId } = require('mongodb');
+const collectionName = 'users';
 
-const app = express();
+function startServer(server, db){
+    const app = express();
+    app.use(express.json());
 
-// Enable CORS for the frontend URL
-const corsOptions = {
-    origin: 'https://group16-app.netlify.app',
-    optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
-
-let users = [
-    {
-        id: "5abf6783",
-        email: "abc@abc.ca",
-        firstName: "ABC"
-    },
-    {
-        id: "5abf674563",
-        email: "xyz@xyz.ca",
-        firstName: "XYZ"
-    }
-];
-
-// GET /users
-app.get('/users', (req, res) => {
-    res.status(200).json({
-        message: "Users retrieved",
-        success: true,
-        users: users
+    //GET API to fetch all users
+    app.get('/users', async(req, res) =>{
+        try{
+            const users = await db.collection(collectionName).find().toArray();
+            res.status(201).json(users);
+        } catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
     });
-});
 
-module.exports = app;
+    //GET API to fetch one user based on id
+    app.get('/users/:id', async(req, res) =>{
+        try{
+            const users = await db.collection(collectionName).findOne({_id: new ObjectId(req.params.id)});
+            res.status(201).json(users);
+        } catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
+    });
+
+    //POST API to add users
+    app.post('/add', async(req, res) => {
+        try{
+            const newUser = await db.collection(collectionName).insertOne(req.body);
+            res.status(201).json({success: true, message: "User added successfully", id: newUser.insertedId});
+        }catch(err){
+            res.status(400).json({success: false, message: err.message});
+        }
+    });
+
+    //PUT API to update the user
+    app.put('/update/:id', async(req, res) => {
+        try{
+            await db.collection(collectionName).updateOne({_id: new ObjectId(req.params.id)}, { $set: req.body });
+            res.status(200).json({success: true, message: 'User is updated'});
+        }catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
+    });
+
+    //DELETE API to delete a user based on id
+    app.delete('/delete/:id', async(req, res) => {
+        try{
+            await db.collection(collectionName).deleteOne({_id: new ObjectId(req.params.id)});
+            res.status(200).json({success: true, message: 'User is deleted'});
+        }catch(err){
+            res.status(500).json({success: false, message: err.message});
+        }
+    });
+
+    server.on('request', app);
+}
+
+module.exports = {startServer};

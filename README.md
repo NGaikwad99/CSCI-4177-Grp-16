@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# CSCI4177 Web App Prototype
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* *Date Created*: 2024/6/24
+* *Last Modification Date*: 2024/6/24
+* *ECMAScript version*: ES6
+* *Deployment URL*: <https://group16-app.netlify.app/>
+* *Git URL*: <https://git.cs.dal.ca/ngaikwad/csci-4177-grp-16>
+
+## Sources Used
+
+- <!---How---> React framework on getting started [React](https://legacy.reactjs.org/docs/getting-started.html)
+
 
 ## Available Scripts
 
