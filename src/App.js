@@ -6,6 +6,7 @@ import LandingPage from './pages/Landing';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ContactUs from './pages/ContactUs';
+import Login from './pages/Login';
 import FAQ from './pages/FAQ';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route path ="ContactUs" element={<ContactUs />} />
           <Route path = "FAQ" element={<FAQ />} />
+          <Route path = "Login" element={<Login />} />
         </Routes>
         
         <Footer />

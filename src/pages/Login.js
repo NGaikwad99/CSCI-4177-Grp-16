@@ -1,4 +1,5 @@
 import './Login.css';
+import { useState } from 'react';
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ function Login() {
             <div className="loginPg">
                 <h1>Login</h1>
 
-                <form className="inputForm" onSubmit={handleSubmit}>
+                <form className="inputForm loginForm" onSubmit={handleSubmit}>
                     <input type="text" placeholder="Username"  value={username} 
                             onChange={(e) => setUsername(e.target.value)} required/>
 

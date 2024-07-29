@@ -11,6 +11,7 @@ function ContactUs() {
         event.preventDefault();
         alert("Thank you for reaching out to us!");
     };
+    
     return (
       <main className="contact-us">
         <div className="contactPg">
