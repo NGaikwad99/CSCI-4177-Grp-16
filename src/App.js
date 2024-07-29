@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ContactUs from './pages/ContactUs';
 import Login from './pages/Login';
 import FAQ from './pages/FAQ';
+import SignUp from './pages/SignUp';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path ="ContactUs" element={<ContactUs />} />
           <Route path = "FAQ" element={<FAQ />} />
           <Route path = "Login" element={<Login />} />
+          <Route path = "SignUp" element={<SignUp />} />
         </Routes>
         
         <Footer />

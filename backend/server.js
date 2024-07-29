@@ -2,13 +2,12 @@ const http = require('http');
 const { startServer } = require('./app');
 const { databaseConnection } = require('./db');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 //Create HTTP server
 const server = http.createServer();
 
 //connect to the database
-
 databaseConnection()
     .then(db => {
         startServer(server, db);

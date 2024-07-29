@@ -1,18 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useState, useContext } from 'react';
 import './SignUp.css';
+import axios from 'axios';
+import { AuthContext } from '../components/authContext';
 
 function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    // const [phone, setPhone] = useState("");
+    const [username, setUsername] = useState("");
     const [role, setRole] = useState("");
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("");
-    navigate('/page1');
+    const { login } = useContext(AuthContext);
 
+    async function handleSubmit(e) {
+        
 
-    function handleSubmit() {
-        console.log(name + " " + email);
+        console.log(username + " " + password);
+
+        e.preventDefault();
+        try {
+            const res = await axios.post('http://localhost:8000/register', { name, email, username, role, password });
+            console.log(res.data);
+            // const token = res.data.token;
+
+            // localStorage.setItem('token', token);
+
+            login();
+
+            // console.log('Login successful. Token:', token);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     function backtoLogin() {
@@ -29,9 +48,12 @@ function SignUp() {
 
                     <input type="email" placeholder="Email" value={email} 
                             onChange={(e) => setEmail(e.target.value)} required/>
+
+                    <input type="text" placeholder="Username" value={username} 
+                            onChange={(e) => setUsername(e.target.value)} required/>
                     
-                    <input type="phone" placeholder="Phone number" value={phone} 
-                            onChange={(e) => setPhone(e.target.value)} required/>
+                    {/* <input type="phone" placeholder="Phone number" value={phone} 
+                            onChange={(e) => setPhone(e.target.value)} required/> */}
 
                     <input type="role" placeholder="Role" value={role} 
                             onChange={(e) => setRole(e.target.value)} required/>
