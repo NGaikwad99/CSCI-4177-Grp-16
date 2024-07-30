@@ -22,7 +22,7 @@ function Login() {
             setError('Password is required');
         } else {
             try {
-                const res = await axios.post('http://localhost:8000/login', { username, password });
+                const res = await axios.post('https://csci-4177-grp-16.onrender.com/login', { username, password });
                 console.log(res.data);
                 const token = res.data.token;
     
