@@ -1,12 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css'
 import logo from '../assets/img/logo.png';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from './authContext';
 import { FaUserCircle } from 'react-icons/fa';
 
 function Header() {
     const { isLoggedIn, logout } = useContext(AuthContext);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => setIsOpen(!isOpen);
 
     const navigate = useNavigate();
 
@@ -31,8 +34,12 @@ function Header() {
                     <button className="meet" onClick={toLogin}>Meet</button>
                     <button className="forum" onClick={toLogin}>Forum</button>
                     <button className="journal" onClick={toLogin}>My Journal</button>
-                    <button onClick={logout}>Logout</button>
-                    <FaUserCircle size={40} color="#EB4C2C" />
+                    <button onClick={toggleDropdown} className='profile-btn'><FaUserCircle size={40} color="#EB4C2C" /></button>
+                    {isOpen && (
+                        <div className="dropdown-menu">
+                            <button onClick={() => {logout(); toLogin();}}>Logout</button>
+                        </div>
+                    )}
                 </>
             ) : (
                 <div class="nav-auth">
