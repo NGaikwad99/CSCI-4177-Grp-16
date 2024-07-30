@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,6 +8,7 @@ import ContactUs from './pages/ContactUs';
 import FAQ from './pages/FAQ';
 import LocalResources from './pages/LocalResources';
 import OnlineResources from './pages/OnlineResources';
+import Chatbot from './components/Chatbot';
 
 function App() {
 
