@@ -31,7 +31,7 @@ function OnlineResources() {
   useEffect(() => {
     const getArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/articles');
+        const response = await axios.get('https://csci-4177-grp-16-main.onrender.com/articles');
         setArticles(response.data);
       } catch (error) {
         console.error("Error fetching articles:", error);
@@ -40,7 +40,7 @@ function OnlineResources() {
 
     const getVideos = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/videos');
+        const response = await axios.get('https://csci-4177-grp-16-main.onrender.com/videos');
         setVideos(response.data);
       } catch (error) {
         console.error("Error fetching videos:", error);
